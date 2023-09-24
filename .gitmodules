@@ -1,0 +1,12 @@
+[submodule "nginx-http"]
+	path = nginx-http
+	url = https://github.com/brasilio-thomazo/nginx-http.git
+	branch = main
+[submodule "admin"]
+	path = admin
+	url = https://github.com/brasilio-thomazo/gde-admin.git
+	branch = main
+[submodule "client"]
+	path = client
+	url = https://github.com/brasilio-thomazo/gde-client.git
+	branch = main
