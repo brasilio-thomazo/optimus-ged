@@ -1,0 +1,6 @@
+apiVersion:
+kind: Pod
+metadata:
+spec:
+  containers:
+    - image:  postgres:16-alpine
