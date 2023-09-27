@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-fpm
+spec:
+  selector:
+    matchLabels:
+      app: admin-fpm
+  template:
+    metadata:
+      labels:
+        app: admin-fpm
+    spec:
+      initContainers:
+        - name: install
+          image: devoptimus/admin-fpm
+          envFrom:
+            - configMapRef:
+                name: "admin-config"
+            - secretRef:
+                name: "admin-secret"
+          command:
+            - php
+          args:
+            - artisan
+            - app:install
+
+      containers:
+        - name: admin-fpm
+          image: devoptimus/admin-fpm
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: "admin-config"
+            - secretRef:
+                name: "admin-secret"

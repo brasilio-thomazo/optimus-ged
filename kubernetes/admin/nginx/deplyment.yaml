@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-nginx
+spec:
+  selector:
+    matchLabels:
+      app: admin-nginx
+  template:
+    metadata:
+      labels:
+        app: admin-nginx
+    spec:
+      containers:
+        - name: admin-nginx
+          image: devoptimus/admin-nginx
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+          env:
+            - name: FPM_HOST
+              value: "admin-fpm:9000"

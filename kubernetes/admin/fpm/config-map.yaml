@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: admin-config
+data:
+  UID: "1000"
+  GID: "1000"
+
+  APP_DEBUG: "falseech"
+  APP_ENV: local
+  APP_NAME: "GED-AdmPanel"
+
+  DB_CONNECTION: pgsql
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_DATABASE: db_admin
+
+  LOG_CHANNEL: stdout
+  LOG_LEVEL: debug
+
+  BROADCAST_DRIVER: log
+  CACHE_DRIVER: redis
+  FILESYSTEM_DISK: local
+  QUEUE_CONNECTION: sync
+  SESSION_DRIVER: redis
+  SESSION_LIFETIME: "120"
+
+  MEMCACHED_HOST: memchached
+
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+
+  DB_DATABASE_ROOT: postgres

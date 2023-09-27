@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+doas groupmod --gid $USER_GID app
+doas usermod --uid $USER_UID --gid $USER_GID app
+doas find /home/app/ -not -user app -exec doas chown -h app {} \;
+doas find /home/app/ -not -group app -exec doas chgrp -h app {} \;
+exec $@

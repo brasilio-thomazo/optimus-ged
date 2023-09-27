@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-fpm
+spec:
+  selector:
+    app: admin-fpm
+  ports:
+    - port: 9000
+      targetPort: 9000

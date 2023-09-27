@@ -1,0 +1,3 @@
+#!/bin/bash
+change-user-attr
+doas php-fpm81 -e
